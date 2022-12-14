@@ -11,10 +11,13 @@ co2 = "#fcc058"  # orange
 co3 = "#fff873"  # yellow
 co4 = "#34eb3d"   # green
 co5 = "#e85151"   # red
-
-
 fundo = "#3b3b3b"
 
+global voce
+global pc 
+global rounds
+global pt_voce
+global pt_pc
 
 janela = Tk()
 janela.title('')
@@ -37,10 +40,8 @@ app_1_linha.place(x=0, y=0)
 app_1_pontos = Label(frame_cima, text="0", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
 app_1_pontos.place(x=50, y=20)
 
-
 app_ = Label(frame_cima, text=":", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
 app_.place(x=125, y=20)
-
 
 app_2_pontos = Label(frame_cima, text="0", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
 app_2_pontos.place(x=170, y=20)
@@ -55,12 +56,6 @@ app_linha.place(x=0, y=95)
 app_pc = Label(frame_baixo, text="", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
 app_pc.place(x=190, y=10)
 
-global voce
-global pc 
-global rounds
-global pt_voce
-global pt_pc
-
 pt_voce = 0
 pt_pc = 0
 rounds = 5
@@ -70,16 +65,13 @@ def jogar(i):
   global pt_voce
   global pt_pc
 
-
   if rounds > 0:
     print(rounds)
     option = ['Pedra', 'Papel', 'Tesoura']
     pc = random.choice(option)
     voce = i
-
     app_pc['text'] = pc
     app_pc['fg'] = co1
-
 
     if voce == 'Pedra' and pc == 'Pedra':
       print('empate')
@@ -96,9 +88,6 @@ def jogar(i):
       app_linha['bg'] = co3
       app_1_linha['bg'] = co0
       app_2_linha['bg'] = co0
-    
-
-
     elif voce == 'Pedra' and pc == 'Tesoura' or voce == 'Papel' and pc == 'Pedra' or voce == 'Tesoura' and pc == 'Papel':
       print('Você ganhou')
       app_linha['bg'] = co0
@@ -117,14 +106,10 @@ def jogar(i):
 
     app_1_pontos['text'] = pt_voce
     app_2_pontos['text'] = pt_pc
-    
-  
-  
+
   else:
     app_1_pontos['text'] = pt_voce
     app_2_pontos['text'] = pt_pc
-
-
     game_over()
 
 
@@ -157,15 +142,11 @@ def iniciar_jogo():
   b_icon_3 = Button(frame_baixo, command=lambda: jogar('Tesoura'), width=50, image=icon_3, compound=CENTER, bg=co0, fg=co0, font=('Ivy 10 bold'), anchor=CENTER, relief=FLAT)
   b_icon_3.place(x=170, y=60)
 
-
-
-
 #-----------FIM-------------#
 def game_over():
   global rounds
   global pt_voce
   global pt_pc
-
   pt_voce = 0 
   pt_pc = 0 
   rounds = 5
@@ -185,7 +166,6 @@ def game_over():
       app_vencedor = Label(frame_baixo, text="Infelizmente, você perdeu!", height=2, anchor='center', font=('Ivy 12 bold'), bg=co0, fg=co5)
       app_vencedor.place(x=30, y=60) 
 
-
   def jogar_novamente():
     app_1_pontos['text'] = '0'
     app_2_pontos['text'] = '0'
@@ -194,14 +174,10 @@ def game_over():
 
     iniciar_jogo()
 
-
   b_jogar_novamente = Button(frame_baixo, command=jogar_novamente, width=30, text='JOGAR NOVAMENTE!',  bg=fundo, fg=co0, font=('Ivy 10 bold'), anchor=CENTER, relief=RAISED, overrelief=RIDGE)
   b_jogar_novamente.place(x=5, y=140)
 
-
-
 #----------ESCOLHAS-----------#
-
 
 b_jogar = Button(frame_baixo, command=iniciar_jogo, width=30, text='JOGAR',  bg=fundo, fg=co0, font=('Ivy 10 bold'), anchor=CENTER, relief=RAISED, overrelief=RIDGE)
 b_jogar.place(x=5, y=140)
