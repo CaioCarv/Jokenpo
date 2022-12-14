@@ -12,7 +12,9 @@ co3 = "#fff873"  # yellow
 co4 = "#34eb3d"   # green
 co5 = "#e85151"   # red
 
+
 fundo = "#3b3b3b"
+
 
 janela = Tk()
 janela.title('')
